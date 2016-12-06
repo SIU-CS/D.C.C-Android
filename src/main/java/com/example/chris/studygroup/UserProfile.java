@@ -7,16 +7,17 @@ package com.example.chris.studygroup;
 public class UserProfile extends GenData implements User  {
     private String ID,email,pass;
     LinkedList groups,current,created;
-    GroupTree tree=MainActivity.test;//when we get a data base we will make tree call the database function get tree.
+
     public UserProfile(String Id, String Email, String Password){
         setId(Id);
         setEmail(Email);
         setPass(Password);
         groups= new LinkedList("myGroups");
+        created= new LinkedList("createdGroups");
     }
     @Override
     public boolean addToGroup(String group) {
-        current=tree.getGroup(group);
+        current=MainActivity.tree.getGroup(group);
         if(current!=null){
             current.add(this);
             groups.add(current);
@@ -28,7 +29,7 @@ public class UserProfile extends GenData implements User  {
 
     @Override
     public boolean isMember(String group) {
-        current=tree.getGroup(group);
+        current=MainActivity.tree.getGroup(group);
         if(current!=null){
 
 
@@ -40,7 +41,7 @@ public class UserProfile extends GenData implements User  {
 
     @Override
     public boolean removeFromGroup(String group) {
-        current=tree.getGroup(group);
+        current=MainActivity.tree.getGroup(group);
         if(current!=null){
             current.remove(this);
             groups.remove(current);
@@ -52,18 +53,18 @@ public class UserProfile extends GenData implements User  {
 
 
     @Override
-    public LinkedList GetGroups() {
+    public LinkedList getGroups() {
         return groups;
     }
 
     @Override
-    public LinkedList GetCreatedGroups() {
+    public LinkedList getCreatedGroups() {
         return created;
     }
 
     @Override
     public boolean createGroup(String name,String sub) {
-        return tree.addGroup(name,sub);
+        return MainActivity.tree.addGroup(name,sub);
     }
 
     @Override

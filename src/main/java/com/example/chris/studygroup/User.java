@@ -10,8 +10,8 @@ public interface User {
     boolean addToGroup(String group);
     boolean isMember(String group);
     boolean removeFromGroup(String group);
-    LinkedList GetGroups();
-    LinkedList GetCreatedGroups();
+    LinkedList getGroups();
+    LinkedList getCreatedGroups();
     boolean createGroup(String name,String sub);
     boolean removeGroup(String name);
     String getPass();
