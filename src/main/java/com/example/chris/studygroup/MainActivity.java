@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         groups= new LinkedList[]{};
         user= new UserProfile("guest","guest@siu.edu","password"); ///will change to get user from login screen.
-
+//Is there any other way you can access this data besieds typing every subject the is offered //
+        // Code Review //
         tree = new GroupTree();
         subjects= new String[]{"ACCOUNTING", "ADVANCED ENERGY & FUELS MGMT", "AEROSPACE STUDIES", "AFRICANA STUDIES", "AGRIBUSINESS ECONOMICS",
                 "ARGRICULTURAL SCIENCES", "AGRICULTURAL SYSTEMS & EDUCAT.", "AGRICULTURE", "ALLIED HEALTH", "ANIMAL SCIENCE", "ANTHROPOLOGY",
@@ -112,7 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         GenData chris, demarco,colton;
 
-
+// Are these user profiles generice classes? //
+        //Code Review //
 
 
         chris=new UserProfile("Chris","ckyser2@gmail.com","password");
@@ -138,7 +140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //-----------------------------------------------------------------------------------------------------------------------------------+
 //                Test for Queue                                                                                             |
 //-----------------------------------------------------------------------------------------------------------------------------------+
-
+//Code Review//
+        //Was the Queue List Implmentation the best thing to use //
         Message a = new Message("test","this is a test meassg1e");
         Message b = new Message("test","this is a test meassge2");
 
