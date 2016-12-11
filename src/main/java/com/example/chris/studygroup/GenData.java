@@ -31,4 +31,9 @@ public abstract class GenData {
 //           LinkedList Methods to Override
 //--------------------------------------------------------------------------------------------------------------
     public String getMessages(){return null;}
+     public void add(GenData data){};
+
+    //code review demarco
+   public abstract boolean getID(int error_incorrect_password);
 }
+
