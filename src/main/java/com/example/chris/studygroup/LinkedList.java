@@ -9,11 +9,18 @@ public class LinkedList extends GenData{
     private String ID;
     private Queue messages;
 
+    //code review colten
+    //Do not know what getID does, but it needed to be declared to run this class
+    @Override
+    public boolean getID(int error_incorrect_password){
+        return true;
+    }
+
     public LinkedList(String id) {
         header = new Node(null);
         setId(id);
     }
-
+    @Override
     public void add(GenData data) {
         Node temp = new Node(data);
         Node current = header;
@@ -28,7 +35,7 @@ public class LinkedList extends GenData{
     public Node searchByData(GenData data) {
         if (hasData()) {
             Node current = header.getNext();
-            Node prev=header;
+            prev=header;
             do {
 
                 if (current.getData()==data) return current;
@@ -52,18 +59,11 @@ public class LinkedList extends GenData{
     }
     public Boolean contains(GenData data) {
         if (hasData()) {
-            Node current = header.getNext();
-            prev=header;
-            do {
-
-                if (current.getData()==data) return true;
-                else {
-                    prev=current;
-                    current = current.getNext();
-                }
-
+            System.out.println(data.toString());
+            GenData[] arr =this.toArr();
+            for (int x =0 ; x<arr.length;x++){
+                if (data==arr[x])return true;
             }
-            while (!current.isLast());
             System.out.println("data was not found");
             return false;
 
@@ -76,11 +76,18 @@ public class LinkedList extends GenData{
 
     public boolean remove(GenData data) {
         Node current = searchByData(data);
-
         if(current==null)return false;
         else{
-            if(current.isLast())prev.setNext(null);
-            else prev.setNext(current.getNext());
+            System.out.println("data was found");
+            if(current.isLast()){
+                prev.setNext(null);
+                prev.reSetLast();
+            }
+            else {
+                prev.setNext(current);
+            }
+
+            System.out.println("data was removed");
             return true;
         }
     }
@@ -88,6 +95,7 @@ public class LinkedList extends GenData{
         Node current = header;
         int count = 0;
         while (!current.isLast()) {
+
             count++;
             current=current.getNext();
         }
@@ -179,8 +187,9 @@ class Node{
         return next;
     }
     public boolean isLast(){
-        if( last){
-            return true;
-        }else return false;
+        return last;
     }
+
+
 }
+
