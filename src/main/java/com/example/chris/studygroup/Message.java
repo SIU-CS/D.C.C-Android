@@ -3,8 +3,6 @@ package com.example.chris.studygroup;
 /**
  * Created by Chris on 11/14/2016.
  */
-// Code Review//
-// Make ssure you write descritpion on what this code does, and how to implement //
 
 public class Message extends GenData{
     String data;
@@ -13,6 +11,13 @@ public class Message extends GenData{
     Message(String Id, String data){
         setData(data);
         setId(Id);
+    }
+
+    //code review colten
+    //Do not know what getID does, but it needed to be declared to run this class
+    @Override
+    public boolean getID(int error_incorrect_password){
+        return true;
     }
 
     @Override
@@ -35,3 +40,4 @@ public class Message extends GenData{
         return getData();
     }
 }
+
